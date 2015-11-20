@@ -1,0 +1,35 @@
+Write a function that provides a weather summary for a given city based on a forecast for the next 2 weeks.
+
+More specifically the function should:
+- Accept a city name as a parameter.
+- Return a dictionary containing the following information.
+  * The name of the city requested.
+  * Max temperature over the forecast period.
+  * Min temperature over the forecast period.
+  * A list of dates in 'yyyy-mm-dd' format grouped by the weather forecast.
+
+eg
+>>> summarise_forecast('London')
+{
+	'city': 'London',
+	'max': 80.82, 
+	'min': 64.6,
+ 	'forecasts': {
+ 		'Clear': ['2014-07-24', '2014-07-25'],
+ 		'Rain': ['2014-07-26'],
+ 	}
+ }
+ 
+Hints:
+- The data can be retrieved at runtime using the openweathermap.org REST API.
+- Example: GET http://api.openweathermap.org/data/2.5/forecast/daily?q=London&units=imperial&cnt=14
+- If using json formatted data the fields within each day’s forecast you may need are:
+  * date (in "time since epoch" format) = “dt”
+  * max temp = temp[“max”]
+  * min temp = temp[“min”]
+  * forecast = weather[“main”]
+  
+  
+Feel free to use any 3rd party libraries to you need and include a pip requirements file.
+
+Good luck.

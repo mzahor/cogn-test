@@ -1,0 +1,3 @@
+How would you create, using AngularJS (and you can choose freely which library to use to implement your solution), a form with 3 fields [ Full name, Date of Birth, Sex ] with data validation which sends the data, using PUT/POST method, to an API endpoint (e.g. ‘http://api.mybackend.com/users/’), and which shows a confirmation message if successfully completed or an error message if not.
+
+It doesn't have to fully work (data exchange can be mocked), I want to see how he/she separates components and implements the solution.
