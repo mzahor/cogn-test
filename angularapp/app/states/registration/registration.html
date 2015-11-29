@@ -1,0 +1,41 @@
+<div class="panel panel-success" ng-show="registered">
+    <div class="panel-heading">Success</div>
+    <div class="panel-body">User {{user.fullName}} has been successfully registered!</div>
+</div>
+<form ng-hide="registered" name="registrationForm" ng-submit="submitForm()" novalidate>
+    <div class="form-group">
+        <label for="full-name">Full name</label>
+        <input type="text" name="fullName" required class="form-control" ng-model="user.fullName">
+    </div>
+    <ng-messages ng-hide="registrationForm.fullName.$pristine && !registrationForm.$submitted" for="registrationForm.fullName.$error">
+        <p ng-message="required" class="text-danger">Full name is required.</p>
+    </ng-messages>
+    <div class="form-group">
+        <label for="full-name">Date of birth</label>
+        <div class="input-group">
+            <input date-time date-validation name="dateOfBirth" required class="form-control" ng-model="user.dateOfBirth" type="datetime" min-view="date" view="year" auto-close="true" format="MM/DD/YYYY" aria-describedby="cal-addon-1">
+            <span class="input-group-addon glyphicon glyphicon-calendar" id="cal-addon-1"></span>
+        </div>
+    </div>
+    <ng-messages ng-hide="registrationForm.dateOfBirth.$pristine && !registrationForm.$submitted" for="registrationForm.dateOfBirth.$error">
+        <p ng-message="required" class="text-danger">Date is required.</p>
+        <p ng-message="parse" class="text-danger">Date should be in format MM/DD/YYYY.</p>
+    </ng-messages>
+    <div class="form-group">
+        <label for="full-name">Sex</label>
+        <div class="radio">
+            <label>
+                <input type="radio" name="sexRadio" id="sexRadioMale" value="male" ng-model="user.sex" required>Male
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="sexRadio" id="sexRadioFemale" ng-model="user.sex" value="female" required>Female
+            </label>
+        </div>
+    </div>
+    <ng-messages ng-hide="registrationForm.sexRadio.$pristine && !registrationForm.$submitted" for="registrationForm.sexRadio.$error">
+        <p ng-message="required" class="text-danger">Sex is required.</p>
+    </ng-messages>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
