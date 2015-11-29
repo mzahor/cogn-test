@@ -1,4 +1,4 @@
-describe('registration page', function() {
+describe('registration service', function() {
     var $timeout,
         registrationService;
 
